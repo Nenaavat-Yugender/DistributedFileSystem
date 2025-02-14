@@ -1,11 +1,14 @@
-// utils.h - Header file for utility functions
+cmake_minimum_required(VERSION 3.10)  # Ensure your CMake version is compatible
 
-#ifndef UTILS_H
-#define UTILS_H
+project(DistributedFileSystem)  # Project name
 
-#include <string>
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-void saveToFile(const std::string &filename, const std::string &data);
-std::string loadFromFile(const std::string &filename);
+# Add the source files
+add_executable(server src/server.cpp src/utils.cpp)
+add_executable(client src/client.cpp src/utils.cpp)
 
-#endif // UTILS_H
+# Optionally, include directories if needed
+# include_directories(${PROJECT_SOURCE_DIR}/src)
